@@ -47,7 +47,7 @@ public static class MyReducer extends MapReduceBase
     public void reduce(Text key, Iterator<IntWritable> values, OutputCollector<Text, MapWritable> output, Reporter reporter) throws IOException {
         MapWritable result = new MapWritable();
         result.put(new Text("extension"), new Text("mp4"));
-        result.put(new Text("video_data"), new Text("reallyreallylongbinarystringit'ssolong oh yeah it can have spaces"));
+        result.put(new Text("video_data"), new BytesWritable("thisisabyteswritalereallyreallylongbinarystringit'ssolong oh yeah it can have spaces".getBytes()));
         result.put(new Text("hdfs_path"), new Text("/user/brandyn/videos/hugevideo"));
         output.collect(key, result);
     }
