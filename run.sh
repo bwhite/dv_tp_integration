@@ -1,1 +1,1 @@
-hadoop jar wordcount.jar com.dappervision.examples.WordCount text input output
+hadoop jar dvintegration.jar com.dappervision.examples.DVIntegration frames_to_hbase_test output/`date +%s`/video_from_hbase_test

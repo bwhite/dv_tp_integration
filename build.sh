@@ -1,2 +1,2 @@
-mkdir wordcount_classes
-javac -classpath ${HADOOP_HOME}/hadoop-core.jar:${HADOOP_HOME}/lib/commons-cli-1.2.jar:${HADOOP_HOME}/contrib/streaming/hadoop-streaming-0.20.2-cdh3u0.jar -d wordcount_classes WordCount.java && jar -cvf wordcount.jar -C wordcount_classes/ .
+mkdir dvintegration_classes
+javac -classpath ${HADOOP_HOME}/hadoop-core.jar:${HADOOP_HOME}/lib/commons-cli-1.2.jar:${HADOOP_HOME}/contrib/streaming/hadoop-streaming-0.20.2-cdh3u0.jar -d dvintegration_classes DVIntegration.java && jar -cvf dvintegration.jar -C dvintegration_classes/ .

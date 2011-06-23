@@ -1,4 +1,4 @@
-package com.dappervision.examples; // NOTE: This was taken verbatim from the hadoop examples
+package com.dappervision.examples;
 import java.io.IOException;
 import java.util.StringTokenizer;
 import java.io.IOException;
@@ -29,15 +29,14 @@ import org.apache.hadoop.typedbytes.TypedBytesWritable;
 import static java.lang.System.out;
 
 
-public class WordCount {
+public class DVIntegration {
 
 public static class MyMapper extends MapReduceBase
     implements Mapper<TypedBytesWritable, TypedBytesWritable, Text, IntWritable> {
-      private final IntWritable one = new IntWritable(1);
-      private Text word = new Text();
     
       public void map(TypedBytesWritable key, TypedBytesWritable value, OutputCollector<Text, IntWritable> output, Reporter reporter) throws IOException {
           out.println(((TreeMap)value.getValue()).get("image_data"));
+          output.collect(new Text("Dummy"), new IntWritable(5)); // Output junk so that the reducer gets input
       }
 }
 
@@ -56,11 +55,11 @@ public static class MyReducer extends MapReduceBase
 
     public static void main(String[] args) throws IOException {
         if (args.length != 2) {
-            System.err.println("Usage: WordCount <input path> <output path>");
+            System.err.println("Usage: DVIntegration <input path> <output path>");
             System.exit(-1);
         }
-        JobConf conf = new JobConf(WordCount.class);
-        conf.setJobName("Wordcount");
+        JobConf conf = new JobConf(DVIntegration.class);
+        conf.setJobName("DVIntegration");
         FileInputFormat.addInputPath(conf, new Path(args[0]));
         FileOutputFormat.setOutputPath(conf, new Path(args[1]));
         conf.setMapperClass(MyMapper.class);
