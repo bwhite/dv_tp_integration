@@ -1,0 +1,1 @@
+hadoop jar wordcount.jar com.dappervision.examples.WordCount text input output
