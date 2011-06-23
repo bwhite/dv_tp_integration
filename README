@@ -1,0 +1,14 @@
+Install:
+
+Grab Hadoopy, use sudo setup.py install  - https://github.com/bwhite/hadoopy
+
+sudo apt-get install python-dev
+git clone git://github.com/bwhite/hadoopy.git
+sudo python setup.py install
+
+Usage:
+bash run.sh
+
+
+build.sh: Run to compile everything, the hadoop streaming class files are required
+run.sh: Makes example data with Python, reads it with java (for frame output 'to hbase' testing).  The output from Java is unrelated, it is the video 'from hbase' and that is read in with Python.
